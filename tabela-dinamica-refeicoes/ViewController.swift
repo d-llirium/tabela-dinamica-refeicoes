@@ -18,7 +18,7 @@ class ViewController: UITableViewController {
         print("tableViewController foi carregada")
     }
     
-    //do protocolo UITableViewDataSource de dentro do UITableViewController
+    // MARK: - UITableViewDataSource
     //para atribuir quantidade de linhas na tabela
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //retorna a quantidade de itens da array como quantidades de linhas
@@ -26,11 +26,15 @@ class ViewController: UITableViewController {
     }
     //para retornar o conetúdo das células
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let celula = UITableViewCell(style: .default, reuseIdentifier: nil)
+        
+        let celula = UITableViewCell(style: .default, reuseIdentifier: "celula")
+        
         //pega cada um os elementos da lista que está sendo renderizado
         let refeicao = refeicoes[indexPath.row]
+        
         //transforma o elemento da lista em uma linha de texto
         celula.textLabel?.text = refeicao
+        
         return celula
     }
 }
